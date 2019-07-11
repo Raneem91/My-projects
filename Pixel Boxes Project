@@ -1,0 +1,30 @@
+const submitButton = document.getElementById("sizePicker");
+const table = document.getElementById("pixelCanvas");
+
+function makeGrid(event) {
+
+// define the gride size tools as Height and Width
+
+event.preventDefault();
+table.innerHTML = '';
+const gridHight = document.getElementById("inputHeight").value;
+const gridWidth = document.getElementById("inputWidth").value;
+
+for (let i = 1; i < gridHight; i++) {
+  const tr = document.createElement('tr');
+  for(let j = 1; j < gridWidth; j ++) { 
+    const td = document.createElement('td');
+    td.addEventListener('click', function(evt) 
+    
+    // Select color input
+    {
+       const color = document.getElementById("colorPicker").value;
+       evt.target.style.backgroundColor = color
+     });
+    tr.appendChild(td);  
+    }
+    table.appendChild(tr);
+ } 
+}
+// When size is submitted by the user, call makeGrid()
+submitButton.addEventListener('click', makeGrid);
